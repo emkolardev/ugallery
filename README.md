@@ -2,8 +2,13 @@
 
 Uses simple web components to create flexible lightbox2 photo galleries
 
-Vendor requirements:
+Required component imports: 
+- components/u-photo.html 
+- components/u-gallery.html
 
-- Bower components: polymer, webcomnonentsjs
-- Jquery
-- Lightbox
+Required third-party imports:
+- bower/polymer/polymer.html
+- bower/webcomponentsjs/webcomnonents-lite.js
+- js/vendor/jquery.min.js
+- lightbox/js/lightbox.min.js
+- lightbox/css/lightbox.css
