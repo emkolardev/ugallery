@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="bower/webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="components/u-photo.html">
+	<link rel="import" href="components/u-gallery.html">
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href="index.html">Ex #1</a> | <a href="index2.html">Ex #2</a> | <a href="index3.html">Ex #3</a>
+		<h1>Two u-gallery elements with cover photos (each containing a gallery of u-photo elements):</h1>
+	</header>
+	<u-gallery width="90%" thumb="images/plazorama.png" album="testalbum">
+		<u-photo image="images/chicago00001.jpg" album="testalbum" about="Addison">
+		</u-photo>
+		<u-photo image="images/chicago00002.jpg" album="testalbum" about="Addison">
+		</u-photo>
+		<u-photo image="images/chicago00003.jpg" album="testalbum" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago00004.jpg" album="testalbum" about="Jackson">
+		</u-photo>
+		<u-photo image="images/chicago00005.jpg" album="testalbum" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago00006.jpg" album="testalbum" about="Addison">
+		</u-photo>
+	</u-gallery>
+	<u-gallery width="90%" thumb="images/trainorama.jpg" album="testalbum2">
+		<u-photo image="images/chicago00007.jpg" album="testalbum2" about="Lake">
+		</u-photo>
+		<u-photo image="images/chicago00008.jpg" album="testalbum2" about="Grand">
+		</u-photo>
+		<u-photo image="images/chicago00009.jpg" album="testalbum2" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago00010.jpg" album="testalbum2" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago00011.jpg" album="testalbum2" about="Train">
+		</u-photo>
+		<u-photo image="images/chicago00012.jpg" album="testalbum2" about="North/Clybourn">
+		</u-photo>
+	</u-gallery>
+
+<div class="theCode"><textarea>
+<u-gallery width="90%" thumb="images/plazorama.png" album="testalbum">
+	<u-photo image="images/chicago00001.jpg" album="testalbum" about="Addison">
+	</u-photo>
+	<u-photo image="images/chicago00002.jpg" album="testalbum" about="Addison">
+	</u-photo>
+	<u-photo image="images/chicago00003.jpg" album="testalbum" about="North/Clybourn">
+	</u-photo>
+	<u-photo image="images/chicago00004.jpg" album="testalbum" about="Jackson">
+	</u-photo>
+	<u-photo image="images/chicago00005.jpg" album="testalbum" about="North/Clybourn">
+	</u-photo>
+	<u-photo image="images/chicago00006.jpg" album="testalbum" about="Addison">
+	</u-photo>
+</u-gallery>
+<u-gallery width="90%" thumb="images/trainorama.jpg" album="testalbum2">
+	<u-photo image="images/chicago00007.jpg" album="testalbum2" about="Lake">
+	</u-photo>
+	<u-photo image="images/chicago00008.jpg" album="testalbum2" about="Grand">
+	</u-photo>
+	<u-photo image="images/chicago00009.jpg" album="testalbum2" about="North/Clybourn">
+	</u-photo>
+	<u-photo image="images/chicago00010.jpg" album="testalbum2" about="North/Clybourn">
+	</u-photo>
+	<u-photo image="images/chicago00011.jpg" album="testalbum2" about="Train">
+	</u-photo>
+	<u-photo image="images/chicago00012.jpg" album="testalbum2" about="North/Clybourn">
+	</u-photo>
+</u-gallery>
+</textarea></div>
+<script src="lightbox/js/lightbox.js"></script>
+</body>
+
+</html>

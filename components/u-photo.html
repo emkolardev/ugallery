@@ -1,0 +1,114 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+<dom-module id="u-photo">
+  <template>
+    <style>
+      /* box-sizing border-box - http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      :host {
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 0;
+      }
+      .uWrapper {
+        overflow: hidden;
+        padding: 0;
+      }
+      .uImage {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+      }
+    </style>
+      <div class="uWrapper" id="uWrap">
+        <img class="uImage" src="{{ image }}" alt="{{ about }}" id="uImg">
+      </div>
+  </template>
+  <script>
+  Polymer({
+    is: 'u-photo',
+    properties: {
+
+      //src for the image
+      image: {
+        type: String,
+        value: function() {
+          return "";
+        }
+      },
+
+      //image's lightbox caption
+      about: {
+        type: String,
+        value: function() {
+          return "";
+        }
+      },
+
+      //set this to group images into lightbox gallery albums
+      //by default, all images on the page grouped together under 'default'
+      album: {
+        type: String,
+        value: function() {
+          return "default";
+        }
+      },
+
+      //frame/border around images
+      //by default, off
+      grid: {
+        type: Number,
+        value: function() {
+          return 0;
+        }
+      },
+
+      cushion: {
+        type: Number,
+        value: function() {
+          return 0;
+        }
+      },
+
+      label: {
+        type: Number,
+        value: function() {
+          return 1;
+        }
+      }
+
+    },//end of properties
+
+    //set frame style if frame="true"
+    ready: function() {
+      //for when i need another this
+      var that = this;
+      //if the grid value is set, calculate the widths, float the elements, and set right clears for appropriate elements
+      if (this.grid > 0) {
+        this.style.width = 100/this.grid + '%';
+        this.style.maxWidth = 100/this.grid + '%';
+        this.style.float = 'left';
+        var all = document.getElementsByTagName('u-photo');
+        for (var i = 0; i < all.length; i++) {
+          if ((i+1) % this.grid == 0) {
+            all[i].style.clear = 'right';
+          }
+        }
+      }
+      //if the cushion value is set, give the inner div some padding/margin
+      if (this.cushion > 0) {
+        this.$.uWrap.style.padding = '0 ' + this.cushion + 'px' + ' 0';
+      }
+      var originalhtml = this.innerHTML;
+      var newhtml = '<a href="' + this.image + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
+      this.innerHTML = newhtml;
+    }
+  });
+  </script>
+</dom-module>
+
+

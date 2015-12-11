@@ -1,0 +1,100 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+<dom-module id="u-gallery">
+  <template>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      :host {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+      .uaWrapper {
+        margin: 0 auto;
+      }
+      .uaWrapper img {
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+    </style>
+    <div class="uaWrapper" id="uawrap" style$="width: {{ width }}">
+      <img src="{{ thumb }}" alt="{{ subtitle }}" id="thumbImg">
+      <content id="uContent"></content>
+    </div>
+  </template>
+
+  <script>
+  Polymer({
+    is: 'u-gallery',
+    properties: {
+      album: {
+        type: String,
+        value: function() {
+          return "default";
+        }
+      },
+      thumb: {
+        type: String,
+        value: function() {
+          return "";
+        }
+      },
+      width: {
+        type: String,
+        value: function() {
+          return "";
+        }
+      },
+      grid: {
+        type: Number,
+        value: function() {
+          return 0;
+        }
+      },
+      gap: {
+        type: Number,
+        value: function() {
+          return 0;
+        }
+      }
+    },
+    ready: function() {
+      if (this.thumb != "") {
+        var imgs = $('u-photo', this);
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].style.display = "none";
+        }
+      }
+      if (this.grid > 0) {
+        var imgs = $('u-photo', this);
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].style.width = 100/this.grid + '%';
+          imgs[i].style.maxWidth = 100/this.grid + '%';
+          imgs[i].style.float = 'left';
+          if ((i+1) % this.grid == 0) {
+            imgs[i].style.clear = 'right';
+          }
+      }      
+    }
+    if (this.gap > 0) {
+      var imgs = $('u-photo', this);
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].style.marginBottom = this.gap + 'px';
+      }
+    }
+    var originalhtml = this.innerHTML;
+    var newhtml = '<a href="' + this.thumb + '" data-lightbox="' + this.album + '">' + originalhtml + '</a>';
+    this.innerHTML = newhtml;
+  }
+  });
+  </script>
+
+</dom-module>
+
+
