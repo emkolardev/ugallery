@@ -1,8 +1,8 @@
 # ugallery
 
-Uses simple web components to create flexible lightbox2 photo galleries
+uses simple web components to create flexible lightbox2 photo galleries
 
-###Dependencies: 
+###dependencies: 
 - u-photo.html (components/u-photo.html)
 - u-gallery.html (components/u-gallery.html)
 - polymer.html (https://github.com/Polymer/polymer)
@@ -11,7 +11,7 @@ Uses simple web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (https://github.com/lokesh/lightbox2/)
 - lightbox.css (https://github.com/lokesh/lightbox2/)
 
-###About the u-photo html component:
+###about the u-photo html component:
 - creates a gallery image with built-in lightbox features
 
 ###u-photo options:
@@ -24,7 +24,7 @@ Uses simple web components to create flexible lightbox2 photo galleries
 - label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
 
 
-###About the u-gallery html component:
+###about the u-gallery html component:
 - groups u-photo elements, can size all u-photos it contains into grid
 - this can be used solely for grouping & sizing images, or used to display just a cover image that can be clicked to bring up the entire gallery in a lightbox
 
