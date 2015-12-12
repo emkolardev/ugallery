@@ -2,6 +2,8 @@
 <dom-module id="u-gallery">
   <template>
     <style>
+      /* border-box: 
+      http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
       html {
         box-sizing: border-box;
       }
@@ -16,6 +18,8 @@
       }
       .uaWrapper {
         margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
       }
       .uaWrapper img {
         max-width: 100%;
@@ -25,43 +29,66 @@
     </style>
     <div class="uaWrapper" id="uawrap" style$="width: {{ width }}">
       <img src="{{ cover }}" alt="{{ subtitle }}" id="thumbImg">
-      <content></content>
+      <content></content> <!-- lets it hold additional html elements -->
     </div>
   </template>
   <script>
   Polymer({
     is: 'u-gallery',
+
     properties: {
+
+      // set this to group images into a lightbox gallery albums (ex: album="MyAlbum")
+      // by default, this is set to 'default'
       album: {
         type: String,
         value: function() {
           return "default";
         }
       },
+
+      // optional: cover-image src for the album/gallery (ex: cover="images/myimage.jpg")
+      // if provided, this will hide all the individual images on the page, showing only the album cover
+      // individual images will then be shown in the lightbox
       cover: {
         type: String,
         value: function() {
           return "";
         }
       },
+
+      // sets width of the entire gallery (ex: width="80%")
+      // can be Npx or N% (using % values recommended)
+      // by default, set to 100%
       width: {
         type: String,
         value: function() {
-          return "";
+          return "100%";
         }
       },
+
+      // how many columns in the grid (ex: grid="4" --> 4 columns means each photo is 25% width-wise)
+      // setting a grid size will effect all photos within this gallery
+      // if not set, gallery will default to a single column
       grid: {
         type: Number,
         value: function() {
           return 0;
         }
       },
+
+      // space between rows in this album (ex: gap="20px")
+      // sets a margin-bottom to u-photos
+      // currently this breaks if photos aren't all set to the same size, so use with caution
       gap: {
-        type: Number,
+        type: String,
         value: function() {
-          return 0;
+          return "";
         }
       },
+
+      // image's lightbox caption
+      // shown in lightbox only if cover image is provided
       about: {
         type: String,
         value: function() {
@@ -69,13 +96,20 @@
         }
       }
     },
+
+
     ready: function() {
+
+      // if a cover image is specified, use it, and hide the images this gallery contains
+      // images will then be shown in the lightbox
       if (this.cover != "") {
         var imgs = $('u-photo', this);
         for (var i = 0; i < imgs.length; i++) {
           imgs[i].style.display = "none";
         }
       }
+
+      // if a grid value is set, resize the u-photo elements in this gallery
       if (this.grid > 0) {
         var imgs = $('u-photo', this);
         for (var i = 0; i < imgs.length; i++) {
@@ -85,18 +119,22 @@
           if ((i+1) % this.grid == 0) {
             imgs[i].style.clear = 'right';
           }
-      }      
-    }
-    if (this.gap > 0) {
-      var imgs = $('u-photo', this);
-      for (var i = 0; i < imgs.length; i++) {
-        imgs[i].style.marginBottom = this.gap + 'px';
+        }      
       }
+
+      // if a gap value is set, put a bottom margin on the u-photos
+      if (this.gap != "") {
+        var imgs = $('u-photo', this);
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].style.marginBottom = this.gap;
+        }
+      }
+
+      // wrap the gallery in a lightbox tag (this makes the cover-image feature work)
+      var originalhtml = this.innerHTML;
+      var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
+      this.innerHTML = newhtml;
     }
-    var originalhtml = this.innerHTML;
-    var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
-    this.innerHTML = newhtml;
-  }
   });
   </script>
 
