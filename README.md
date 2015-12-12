@@ -8,7 +8,7 @@ uses simple web components to create flexible lightbox2 photo galleries
 
 ###dependencies: 
 - polymer.html (bower/polymer/polymer.html)
-- webcomnonents-lite.js (bower/webcomponentsjs/webcomponents-lite.js)
+- webcomponents-lite.js (bower/webcomponentsjs/webcomponents-lite.js)
 - jquery.min.js (js/vendor/jquery.min.js)
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
@@ -39,7 +39,7 @@ uses simple web components to create flexible lightbox2 photo galleries
 - gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
 
 ###resource links
-https://github.com/Polymer/polymer
-https://github.com/webcomponents/webcomponentsjs)
-https://jquery.com/
-https://github.com/lokesh/lightbox2/
+- Polymer: https://github.com/Polymer/polymer
+- Webcomponentsjs: https://github.com/webcomponents/webcomponentsjs)
+- JQuery: https://jquery.com/
+- Lightbox: https://github.com/lokesh/lightbox2/
