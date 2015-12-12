@@ -22,10 +22,18 @@
         margin: 0 auto;
         width: 100%;
       }
+      h3, a {
+        text-decoration: none;
+        color: white;
+      }
+      h3 {
+        position: absolute;
+        margin-bottom: 0;
+      }
     </style>
     <div class="uaWrapper" id="uawrap" style$="width: {{ width }}">
-      <img src="{{ thumb }}" alt="{{ subtitle }}" id="thumbImg">
-      <content id="uContent"></content>
+      <img src="{{ cover }}" alt="{{ subtitle }}" id="thumbImg">
+      <content></content>
     </div>
   </template>
 
@@ -39,7 +47,7 @@
           return "default";
         }
       },
-      thumb: {
+      cover: {
         type: String,
         value: function() {
           return "";
@@ -62,10 +70,16 @@
         value: function() {
           return 0;
         }
+      },
+      about: {
+        type: String,
+        value: function() {
+          return "";
+        }
       }
     },
     ready: function() {
-      if (this.thumb != "") {
+      if (this.cover != "") {
         var imgs = $('u-photo', this);
         for (var i = 0; i < imgs.length; i++) {
           imgs[i].style.display = "none";
@@ -89,7 +103,7 @@
       }
     }
     var originalhtml = this.innerHTML;
-    var newhtml = '<a href="' + this.thumb + '" data-lightbox="' + this.album + '">' + originalhtml + '</a>';
+    var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
     this.innerHTML = newhtml;
   }
   });

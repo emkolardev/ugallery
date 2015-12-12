@@ -24,11 +24,16 @@ header h1 {
 	font-size: 22px;
 }
 
-textarea {
+.theCode {
 	width: 90%;
-	margin: 30px 5%;
-	height: 400px;
-	background-color: rgba(20,20,20,1);
-	color: white;
+	margin: 20px auto;
+}
+
+.indent1 {
+	margin-left: 20px;
+}
+
+.indent2 {
+	margin-left: 40px;
 }
 
