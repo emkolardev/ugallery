@@ -2,14 +2,16 @@
 
 uses simple web components to create flexible lightbox2 photo galleries
 
-###dependencies: 
+###the components:
 - u-photo.html (components/u-photo.html)
 - u-gallery.html (components/u-gallery.html)
-- polymer.html (https://github.com/Polymer/polymer)
-- webcomnonents-lite.js (https://github.com/webcomponents/webcomponentsjs)
-- jquery.min.js (https://jquery.com/)
-- lightbox.min.js (https://github.com/lokesh/lightbox2/)
-- lightbox.css (https://github.com/lokesh/lightbox2/)
+
+###dependencies: 
+- polymer.html (bower/polymer/polymer.html)
+- webcomnonents-lite.js (bower/webcomponentsjs/webcomponents-lite.js)
+- jquery.min.js (js/vendor/jquery.min.js)
+- lightbox.min.js (lightbox/js/lightbox.min.js)
+- lightbox.css (lightbox/css/lightbox.css)
 
 ###about the u-photo html component:
 - creates a gallery image with built-in lightbox features
@@ -35,3 +37,9 @@ uses simple web components to create flexible lightbox2 photo galleries
 - cover: string, path to cover image, will enable this feature if value is given (optional)
 - grid: number, sets the number of columns in gallery and determines image widths (optional)
 - gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
+
+###resource links
+https://github.com/Polymer/polymer
+https://github.com/webcomponents/webcomponentsjs)
+https://jquery.com/
+https://github.com/lokesh/lightbox2/
