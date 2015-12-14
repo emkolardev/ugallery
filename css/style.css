@@ -24,6 +24,10 @@ header h1 {
 	font-size: 22px;
 }
 
+header sup {
+	color: rgba(200,200,200,1);
+}
+
 .theCode {
 	width: 90%;
 	margin: 20px auto;
@@ -35,5 +39,9 @@ header h1 {
 
 .indent2 {
 	margin-left: 40px;
+}
+
+.hide {
+	visibility: hidden;
 }
 
