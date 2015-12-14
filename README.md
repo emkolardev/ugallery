@@ -1,6 +1,6 @@
-# ugallery
+#ugallery
 
-uses simple web components to create flexible lightbox2 photo galleries
+uses polymer-based web components to create flexible lightbox2 photo galleries
 
 ###the components:
 - u-photo.html (components/u-photo.html)
@@ -13,12 +13,15 @@ uses simple web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
 
+###include for touch gestures (not very useful at the moment):
+- hammer.min.js (js/vendor/hammer.min.js)
+
 ###about the u-photo html component:
 - creates a gallery image with built-in lightbox features
 
 ###u-photo options:
 - image: string, path to image
-- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden)
+- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden; this is not currently implemented)
 - album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
 - about: string, shows up as the image caption in lightbox (optional)
 - grid: number, determines the image width by setting the number of columns it will occupy (optional)
@@ -43,3 +46,9 @@ uses simple web components to create flexible lightbox2 photo galleries
 - Webcomponentsjs: https://github.com/webcomponents/webcomponentsjs)
 - JQuery: https://jquery.com/
 - Lightbox: https://github.com/lokesh/lightbox2/
+
+###todo:
+- implement better touch gestures with hammer
+- make the ‘width’ property for u-photos
+- figure out why u-gallery elements only work in chrome
+- fix the gap property so it doesn’t sometimes break the grid
