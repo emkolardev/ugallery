@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Emily Kolar">
+	<title>Demo</title>
+	<!-- import jquery, webcomponentsjs (min.js or lite.js), and the lightbox css -->
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="bower/webcomponentsjs/webcomponents-lite.js"></script>
+	<!-- import hammer -->
+	<script src="js/vendor/hammer.min.js"></script>
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<!-- import the u-photo and u-gallery templates -->
+	<link rel="import" href="components/u-photo.html">
+	<link rel="import" href="components/u-gallery.html">
+	<!-- styles just for demo pages (not needed for components to work) -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href="index.html">Demo #1</a> | <a href="index2.html">Demo #2</a> | <a href="index3.html">Demo #3</a> | <a href="https://github.com/emkolardev/ugallery/blob/seconditeration/README.md">ReadMe</a> | <a href="https://github.com/emkolardev/ugallery/tree/seconditeration">Github Repo</a>
+		<h1><sup>All browsers and mobile</sup><br>A series of single u-photo elements, without any u-gallery containers, which are linked to a shared lightbox</h1>
+	</header>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-photo> element:
+	creates a gallery image with built-in lightbox features
+
+	options:
+	- image: string, path to image
+	- width: string, can be Npx or N%, but % values are recommended (optional; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden)
+	- album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
+	- about: string, shows up as the image caption in lightbox (optional)
+	- grid: number, determines the image width by setting the number of columns it will occupy (optional)
+	- cushion: number, sets a padding on the right and left of the image (optional)
+	- label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago07.jpg" album="testalbum" about="Lake" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago08.jpg" album="testalbum" about="Grand" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago09.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago10.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="4">
+	</u-photo>
+	<u-photo id="hammerTest1" image="images/chicago11.jpg" album="testalbum" about="Train" cushion="5" grid="2">
+	</u-photo>
+	<u-photo id="hammerTest2" image="images/chicago12.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="2">
+	</u-photo>
+	
+<!-- lightbox -->
+<script src="lightbox/js/lightbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+<dom-module id="u-gallery">
+  	<template>
+    	<style>
+	    html {
+	        box-sizing: border-box;
+	    }
+	    *, *:before, *:after {
+	        box-sizing: inherit;
+	    }
+	    :host {
+	        overflow: hidden;
+	        margin: 0;
+	        padding: 0;
+	        display: block;
+	        height: auto;
+	    }
+	    .uaWrapper {
+	        margin: 0 auto;
+	        padding: 0;
+	        overflow: hidden;
+	    }
+	    img {
+	        max-width: 100%;
+	        margin: 0 auto;
+	        width: 100%;
+	    }
+    </style>
+	<div class="uaWrapper" id="uawrap" style$="width: {{ width }}">
+		<img class="gthumb" src="{{ cover }}" alt="{{ subtitle }}" id="thumbImg">
+		 <content></content><!-- need this for holding of the u-photos -->
+	</div>
+	</template>
+  	<script>
+	Polymer({
+	    is: 'u-gallery',
+	
+	    properties: {
+	
+	    	// set this to group images into a lightbox gallery albums (ex: album="MyAlbum")
+			// by default, this is set to 'default'
+			album: {
+	        	type: String,
+				value: function() {
+				return "default";
+	        	}
+	     	},
+	
+		 	// optional: cover-image src for the album/gallery (ex: cover="images/myimage.jpg")
+		 	// if provided, this will hide all the individual images on the page, showing only the album cover
+		 	// individual images will then be shown in the lightbox
+		 	cover: {
+	        	type: String,
+				value: function() {
+					return "";
+	        	}
+	      	},
+	
+		    // sets width of the entire gallery (ex: width="80%")
+		    // can be Npx or N% (using % values recommended)
+		    // by default, set to 100%
+			width: {
+	        	type: String,
+				value: function() {
+					return "100%";
+	        	}
+	      	},
+	
+		  	// how many columns in the grid (ex: grid="4" --> 4 columns means each photo is 25% width-wise)
+		  	// setting a grid size will effect all photos within this gallery
+		  	// if not set, gallery will default to a single column
+		  	grid: {
+	        	type: Number,
+				value: function() {
+					return 0;
+	        	}
+	      	},
+	
+		  	// space between rows in this album (ex: gap="20px")
+		  	// sets a margin-bottom to u-photos
+		  	// currently this breaks if photos aren't all set to the same size, so use with caution
+		  	gap: {
+	        	type: String,
+				value: function() {
+					return "";
+	        	}
+	      	},
+	
+		  	// image's lightbox caption
+		  	// shown in lightbox only if cover image is provided
+		  	about: {
+	        	type: String,
+				value: function() {
+					return "";
+	        	}
+	      	}
+	    },
+	    ready: function() {
+			var imgArray = [];
+			// if a cover image is specified, use it, and hide the images this gallery contains
+			// wrap it up in a lightbox
+			// images will then be shown in the lightbox
+			if (this.cover != "") {
+				var imgs = $('u-photo', this);
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].style.display = "none";
+        		}
+				var originalhtml = this.innerHTML;
+				var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
+				this.innerHTML = newhtml;
+      		}	      
+      		else {
+		      this.$.thumbImg.style.display = 'none';
+	      	}
+	
+		  	// if a grid value is set, resize the u-photo elements in this gallery
+		  	if (this.grid > 0) {
+	        	var imgs = $('u-photo', this);
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].style.width = (100 / this.grid) + '%';
+					imgs[i].style.maxWidth = (100 / this.grid) + '%';
+					imgs[i].style.float = 'left';
+					if ((i+1) % this.grid == 0) {
+						imgs[i].style.clear = 'right';
+	          		}
+	        	}      
+	        }
+	
+		  	// if a gap value is set, put a bottom margin on the u-photos
+		  	if (this.gap != "") {
+	        	var imgs = $('u-photo', this);
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].style.marginBottom = this.gap;
+	        	}
+	      	}
+	    }
+	});
+ 	</script>
+</dom-module>
+
+

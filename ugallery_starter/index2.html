@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Emily Kolar">
+	<title>Demo 2</title>
+	<!-- import jquery, webcomponentsjs (min.js or lite.js), and the lightbox css -->
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="bower/webcomponentsjs/webcomponents.min.js"></script>
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<!-- import the u-photo and u-gallery templates -->
+	<link rel="import" href="components/u-photo.html">
+	<link rel="import" href="components/u-gallery.html">
+	<!-- styles just for demo pages (not needed for components to work) -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href="index.html">Demo #1</a> | <a href="index2.html">Demo #2</a> | <a href="index3.html">Demo #3</a> | <a href="https://github.com/emkolardev/ugallery/blob/seconditeration/README.md">ReadMe</a> | <a href="https://github.com/emkolardev/ugallery/tree/seconditeration">Github Repo</a>
+		<h1><sup>All browsers and mobile</sup><br>Two u-gallery elements without cover photos (each containing a gallery of u-photo elements)</h1>
+	</header>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-gallery> element:
+	- groups u-photo elements, can size all u-photos it contains into grid
+	- this can be used solely for grouping & sizing images, or used to display just a cover image that can be clicked to bring up the entire gallery in a lightbox
+
+	options:
+	- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%)
+	- album: string, necessary if using cover image & must match album of its u-photos (defaults to "default")
+	- about: string, shows up as the caption in lightbox (optional)
+	- cover: string, path to cover image, will enable this feature if value is given (optional)
+	- grid: number, sets the number of columns in gallery and determines image widths (optional)
+	- gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-photo> element:
+	creates a gallery image with built-in lightbox features
+
+	options:
+	- image: string, path to image
+	- width: string, can be Npx or N%, but % values are recommended (optional; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden)
+	- album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
+	- about: string, shows up as the image caption in lightbox (optional)
+	- grid: number, determines the image width by setting the number of columns it will occupy (optional)
+	- cushion: number, sets a padding on the right and left of the image (optional)
+	- label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<u-gallery width="95%" grid="6">
+		<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="10">
+		</u-photo>
+	</u-gallery>
+	<u-gallery width="95%" grid="3">
+		<u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago09.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago10.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago11.jpg" album="testalbum2" about="Train" cushion="10">
+		</u-photo>
+		<u-photo image="images/chicago12.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		</u-photo>
+	</u-gallery>
+
+<!-- lightbox -->	
+<script src="lightbox/js/lightbox.js"></script>
+</body>
+</html>

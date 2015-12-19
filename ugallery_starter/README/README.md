@@ -13,9 +13,8 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
 
-###include for mobile gestures:
+###include for touch gestures (not very useful at the moment, although swipe does change bg color):
 - hammer.min.js (js/vendor/hammer.min.js)
-- as of right now, swiping right or left makes a random background color on the demo #1 page, but i haven’t gotten around to doing anything useful with this yet
 
 ###about the u-photo html component:
 - creates a gallery image with built-in lightbox features
@@ -27,7 +26,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - about: string, shows up as the image caption in lightbox (optional)
 - grid: number, determines the image width by setting the number of columns it will occupy (optional)
 - cushion: number, sets a padding on the image (optional)
-- counter: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
+- label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
 
 
 ###about the u-gallery html component:
@@ -39,7 +38,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - album: string, necessary if using cover image & must match album of its u-photos (defaults to "default")
 - about: string, shows up as the caption in lightbox (optional)
 - cover: string, path to cover image, will enable this feature if value is given (optional)
-- grid: number, sets the number of columns in gallery and determines image widths (optional; ~~NOTE that this is only working in Chrome right now~~ (fixed))
+- grid: number, sets the number of columns in gallery and determines image widths (optional; NOTE that this is only working in Chrome right now)
 - gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
 
 ###resource links
