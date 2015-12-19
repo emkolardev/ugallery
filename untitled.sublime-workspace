@@ -307,14 +307,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 6156,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -386,12 +378,31 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/Emily/ugallery"
-	],
 	"file_history":
 	[
+		"/Users/Emily/scripting/index.html",
+		"/Users/Emily/Desktop/website-projects/emkolar.ninja/enroute/js/script.js",
+		"/Users/Emily/Desktop/website-projects/emkolar.ninja/enroute/index.html",
+		"/Users/Emily/Desktop/website-projects/emkolar.ninja/enroute/js/mymap.js",
+		"/Users/Emily/Desktop/website-projects/emkolar.ninja/enroute/js/map.js",
+		"/Users/Emily/ugallery/js/script.js",
+		"/Users/Emily/ugallery/index.html",
+		"/Users/Emily/ugallery/index2.html",
+		"/Users/Emily/ugallery/index3.html",
+		"/Users/Emily/ugallery/lightbox/js/lightbox.js",
+		"/Users/Emily/ugallery/css/style.css",
+		"/Users/Emily/enroute/css/style.css",
+		"/Users/Emily/enroute/js/mymap.js",
+		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/js/mymap.js",
+		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/index.html",
+		"/Users/Emily/Desktop/FA15/aim2/work/enroute_gestures/index.html",
+		"/Users/Emily/Desktop/FA15/aim2/work/enroute_gestures/indexdark.html",
+		"/Users/Emily/Desktop/FA15/aim2/index.html",
+		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/contents.html",
+		"/Users/Emily/Desktop/FA15/aim2/work/enroute_gestures/js/mymap.js",
+		"/Users/Emily/Desktop/FA15/aim2/work/enroute_gestures/bower/google-map/google-map.html",
+		"/Users/Emily/Desktop/website-projects/emkolar.ninja/enroute/js/styles.js",
+		"/Users/Emily/enroute/index.html",
 		"/Users/Emily/Desktop/FA15/ewt/hw/week11/dossier.html",
 		"/Users/Emily/Desktop/website-projects/leephototest/index.html",
 		"/Users/Emily/Desktop/website-projects/leepresserphoto/index.html",
@@ -404,7 +415,6 @@
 		"/Users/Emily/Desktop/FA15/ewt/hw/final/components/photogallerybyhtml.html",
 		"/Users/Emily/Desktop/hammer/index.html",
 		"/Users/Emily/Downloads/hammer.min.js",
-		"/Users/Emily/Desktop/FA15/aim2/index.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/bower/google-map/google-map-marker.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/js/script.js",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/bower/google-map/google-map.html",
@@ -412,9 +422,7 @@
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/bower/google-map/google-map-search.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/eraold/js/mymap.js",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/js/explore.js",
-		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/js/mymap.js",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/css/style.css",
-		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/index.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/era_stable/components/top-bar.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/demo/index.html",
 		"/Users/Emily/Desktop/FA15/aim2/work/era/js/mymap.js",
@@ -499,31 +507,11 @@
 		"/Users/Emily/Desktop/embed/fatelinks.js",
 		"/Users/Emily/Desktop/embed/normalize.css",
 		"/Users/Emily/Desktop/embed/embedTest.html",
-		"/Users/Emily/Desktop/FA15/aim2/work/enrouteapp/index2.html",
-		"/Users/Emily/Desktop/enrouteapp/index2.html",
-		"/Users/Emily/Desktop/embed/ios-orientationfix.js",
-		"/Users/Emily/Desktop/embed/jquery.responsiveIframe.js",
-		"/Users/Emily/Desktop/embed/frame.js",
-		"/Users/Emily/Desktop/enrouteapp/index.html",
-		"/Users/Emily/Desktop/enrouteapp/index3.html",
-		"/Users/Emily/Desktop/enrouteapp/css/style2.css",
-		"/Users/Emily/Desktop/enrouteapp/js/script.js",
-		"/Users/Emily/Desktop/enrouteapp/js/mapcomponent.js",
-		"/Users/Emily/Desktop/enrouteapp/css/style.css",
-		"/Users/Emily/Desktop/enrouteapp/js/map.js",
-		"/Users/Emily/Desktop/FA15/ewt/cw/week11/cw-polymer-starter/palette/component.html",
-		"/Users/Emily/Desktop/FA15/ewt/cw/week11/cw-polymer-starter/trubble-bubble/trubble-bubble.html",
-		"/Users/Emily/Desktop/FA15/ewt/cw/week11/cw-polymer-starter/trubble-bubble/index.html",
-		"/Users/Emily/Desktop/FA15/ewt/cw/week11/cw-polymer-starter/palette/index.html",
-		"/Users/Emily/Desktop/FA15/ewt/cw/week11/cw-polymer-starter/maps/index.html",
-		"/Users/Emily/canvas/style.css",
-		"/Users/Emily/canvas/index.html",
-		"/Users/Emily/scripting/index.html",
-		"/Users/Emily/Desktop/FA15/scripting/index.html"
+		"/Users/Emily/Desktop/FA15/aim2/work/enrouteapp/index2.html"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -538,6 +526,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"class=\"group3\" ",
+			"class=\"group2\" ",
+			"class=\"group1\" ",
+			"lb-next",
 			" cushion=\"15\"",
 			"10\"",
 			" grid=\"5\"",
@@ -661,11 +653,7 @@
 			"@media",
 			"760",
 			"\"images/AntarcticaAndSouthAmerica/",
-			".jpg",
-			"vm[0-9]*:\\d ",
-			"/vm",
-			"what",
-			"<li>"
+			".jpg"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -763,38 +751,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6156,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -845,7 +803,7 @@
 	"project": "untitled.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
