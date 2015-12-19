@@ -13,7 +13,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
 
-###include for touch gestures (not very useful at the moment):
+###include for touch gestures (not very useful at the moment, although swipe does change bg color):
 - hammer.min.js (js/vendor/hammer.min.js)
 
 ###about the u-photo html component:
@@ -21,11 +21,11 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 
 ###u-photo options:
 - image: string, path to image
-- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden; this is not currently implemented)
+- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%; NOTE that if a grid value is set on the u-photo or its u-gallery, this value will be overriden)
 - album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
 - about: string, shows up as the image caption in lightbox (optional)
 - grid: number, determines the image width by setting the number of columns it will occupy (optional)
-- cushion: number, sets a padding on the right and left of the image (optional)
+- cushion: number, sets a padding on the image (optional)
 - label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
 
 
@@ -38,7 +38,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - album: string, necessary if using cover image & must match album of its u-photos (defaults to "default")
 - about: string, shows up as the caption in lightbox (optional)
 - cover: string, path to cover image, will enable this feature if value is given (optional)
-- grid: number, sets the number of columns in gallery and determines image widths (optional)
+- grid: number, sets the number of columns in gallery and determines image widths (optional; NOTE that this is only working in Chrome right now)
 - gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
 
 ###resource links
@@ -49,6 +49,6 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 
 ###todo:
 - implement better touch gestures with hammer
-- make the ‘width’ property for u-photos
-- figure out why u-gallery elements only work in chrome
+- ~~make the ‘width’ property for u-photos~~ (done)
+- figure out why ~~u-gallery elements~~cover photos only work in chrome (partially done)
 - fix the gap property so it doesn’t sometimes break the grid
