@@ -30,9 +30,9 @@
 		<img class="gthumb" src="{{ cover }}" alt="{{ subtitle }}" id="thumbImg">
 		 <content></content><!-- need this for holding of the u-photos -->
 	</div>
-  </template>
-  <script>
-	  Polymer({
+	</template>
+  	<script>
+	Polymer({
 	    is: 'u-gallery',
 	
 	    properties: {
@@ -105,9 +105,9 @@
 				for (var i = 0; i < imgs.length; i++) {
 					imgs[i].style.display = "none";
         		}
-      		var originalhtml = this.innerHTML;
-		  	var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
-		  	this.innerHTML = newhtml;
+				var originalhtml = this.innerHTML;
+				var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
+				this.innerHTML = newhtml;
       		}	      
       		else {
 		      this.$.thumbImg.style.display = 'none';
@@ -124,7 +124,7 @@
 						imgs[i].style.clear = 'right';
 	          		}
 	        	}      
-	      	}
+	        }
 	
 		  	// if a gap value is set, put a bottom margin on the u-photos
 		  	if (this.gap != "") {
@@ -134,9 +134,8 @@
 	        	}
 	      	}
 	    }
-	 });
-  	</script>
-
+	});
+ 	</script>
 </dom-module>
 
 
