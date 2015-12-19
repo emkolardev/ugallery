@@ -8,7 +8,7 @@
 	<title>Demo 2</title>
 	<!-- import jquery, webcomponentsjs lite, and the lightbox css -->
 	<script src="js/vendor/jquery.min.js"></script>
-	<script src="bower/webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="bower/webcomponentsjs/webcomponents.min.js"></script>
 	<link rel="stylesheet" href="lightbox/css/lightbox.css">
 	<!-- import the u-photo and u-gallery templates -->
 	<link rel="import" href="components/u-photo.html">
@@ -19,7 +19,7 @@
 <body>
 	<header>
 		<a href="index.html">Ex #1</a> | <a href="index2.html">Ex #2</a> | <a href="index3.html">Ex #3</a>
-		<h1><sup>Chrome only</sup><br>Two u-gallery elements without cover photos (each containing a gallery of u-photo elements):</h1>
+		<h1><sup>All browsers and mobile</sup><br>Two u-gallery elements without cover photos (each containing a gallery of u-photo elements):</h1>
 	</header>
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -49,7 +49,7 @@
 	- cushion: number, sets a padding on the right and left of the image (optional)
 	- label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<u-gallery width="90%" grid="6">
+	<u-gallery width="95%" grid="6">
 		<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="10">
 		</u-photo>
 		<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="10">
@@ -63,7 +63,7 @@
 		<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="10">
 		</u-photo>
 	</u-gallery>
-	<u-gallery width="90%" grid="3">
+	<u-gallery width="95%" grid="3">
 		<u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="10">
 		</u-photo>
 		<u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="10">
