@@ -13,8 +13,8 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
 
-###~~include for mobile gestures:
-- hammer.min.js (js/vendor/hammer.min.js)
+###include for mobile gestures:
+- ~~hammer.min.js (js/vendor/hammer.min.js)
 - as of right now, swiping right or left makes a random background color on the demo #1 page, but i haven’t gotten around to doing anything useful with this yet~~ (not using at all right now)
 
 ###about the u-photo html component:
@@ -51,5 +51,5 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 ###todo:
 - ~~implement better touch gestures with hammer~~ (later, later, later)
 - ~~make the ‘width’ property for u-photos~~ (done)
-- figure out why ~~u-gallery elements~~ ~~cover photos only work in chrome (partially fixed)~~ (fixed!)
+- ~~figure out why~~ ~~(u-gallery elements)~~ ~~cover photos only work in chrome (partially fixed)~~ (fixed!)
 - fix the gap property so it doesn’t sometimes break the grid
