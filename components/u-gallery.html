@@ -137,7 +137,8 @@
 				lba.setAttribute('data-title', this.about);
 				lba.setAttribute('href', this.cover);
 				lba.appendChild(this.$.ugwrapper);	
-				Polymer.dom(this.root).appendChild(lba);					
+				Polymer.dom(this.root).appendChild(lba);	
+				
 			} else {
 				this.$.ugcover.style.display = 'none';
 			}
@@ -164,6 +165,10 @@
 				for (i = 0; i < wrappers.length; i++) {
 					wrappers[i].style.padding = this.cushion + 'px';
 				}
+			}
+			
+			if (this.cover !== '') {
+				this.$.ugwrapper.style.marginBottom = this.gap + 'px';
 			}
 			
 			if (this.frame !== '') {

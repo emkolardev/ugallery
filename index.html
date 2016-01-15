@@ -3,44 +3,85 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Weather Planner</title>
-	<!--bring in some polyfills -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Emily Kolar">
+	<title>Demo</title>
+	<!-- import webcomponentsjs lite and the lightbox css -->
 	<script src="components/bower/webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="stylesheet" href="lightbox/css/lightbox.css">
 	<script src="js/vendor/jquery.min.js"></script>
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<!-- import the u-photo and u-gallery templates -->
 	<link rel="import" href="components/u-photo.html">
 	<link rel="import" href="components/u-gallery.html">
-	<style>
-
-	</style>
+	<!-- styles just for demo pages (not needed for components to work) -->
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<header>
+		<a href="index.html">Demo #1</a> | <a href="index2.html">Demo #2</a> | <a href="index3.html">Demo #3</a> | <a href="https://github.com/emkolardev/ugallery/blob/localdom/README.md">ReadMe</a> | <a href="https://github.com/emkolardev/ugallery/tree/seconditeration">Github Repo</a> | <a href="ugallery_starter.zip" download>Download</a>
+		<h1>A series of single u-photo elements, without any u-gallery containers, which are linked to a shared lightbox<br>(try clicking!)</h1>
+	</header>
 
-<main>
-<h1>u-gallery/u-photo</h1>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-photo> element:
+	creates a gallery image with built-in lightbox features
 
+	options:
+	- image: string, path to image
+	- pixels: number, sets width of uphoto in pixels, but converted to a grid value (optional)
+	- album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
+	- about: string, shows up as the image caption in lightbox (optional)
+	- grid: number, determines the image width by setting the number of columns it will occupy (optional; defaults to 1 (full width))
+	- cushion: number, sets a padding on the right and left of the image (optional)
+	- frame: string, can be 'light' or 'dark'; sets a little border on the image, either charcoal or almost-white
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="5" grid="6">
+	</u-photo>
+	<u-photo image="images/chicago07.jpg" album="testalbum" about="Lake" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago08.jpg" album="testalbum" about="Grand" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago09.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="4">
+	</u-photo>
+	<u-photo image="images/chicago10.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="4">
+	</u-photo>
+	<u-photo id="hammerTest1" image="images/chicago11.jpg" album="testalbum" about="Train" cushion="5" grid="2">
+	</u-photo>
+	<u-photo id="hammerTest2" image="images/chicago12.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="2">
+	</u-photo>
+	
+	<br /><br /><hr /><br />
 
-	<u-gallery grid="4" percent="100" album="chicago2" cushion="5" frame="dark" cover="images/plazorama.png">
-		<u-photo image="images/chicago01.JPG" about="about1"></u-photo>
-		<u-photo image="images/chicago02.JPG" about="about2"></u-photo>
-		<u-photo image="images/chicago03.JPG" about="about3"></u-photo>
-		<u-photo image="images/chicago04.JPG" about="about4"></u-photo>
-		<u-photo image="images/chicago05.JPG" about="about1"></u-photo>
-		<u-photo image="images/chicago06.JPG" about="about2"></u-photo>
-		<u-photo image="images/chicago07.JPG" about="about3"></u-photo>
-		<u-photo image="images/chicago08.JPG" about="about4"></u-photo>
-	</u-gallery>
-	<u-gallery grid="6" gap="5px" percent="100" album="chicago" frame="light" cushion="5">
-		<u-photo image="images/chicago09.JPG" about="about1"></u-photo>
-		<u-photo image="images/chicago10.JPG" about="about2"></u-photo>
-		<u-photo image="images/chicago11.JPG" about="about3"></u-photo>
-		<u-photo image="images/chicago12.JPG" about="about4"></u-photo>
-		<u-photo image="images/chicago01.JPG" about="about1"></u-photo>
-		<u-photo image="images/chicago02.JPG" about="about2"></u-photo>
-	</u-gallery>
-
-</main>
-
+	<div class="theCode">
+	<sup>(Click the ReadMe link up top for a thorough run-down)</sup><br>
+	<h3>HTML example for this gallery:</h3>
+	<p>&lt;head&gt;</p>
+	<p class="indent1">&lt;script src="file/jquery.min.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="file/webcomponents-lite.js"&gt;&lt;/script&gt;<br>
+	&lt;link rel="stylesheet" href="file/lightbox.css"&gt;<br>
+	&lt;link rel="import" href="file/u-photo.html"&gt;<br>
+	&lt;link rel="import" href="file/u-gallery.html"&gt;</p>
+	<p>&lt;/head&gt;</p>
+	<p>&lt;body&gt;</p>
+			<p class="indent1">&lt;u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="5" grid="6"&gt;&lt;/u-photo&gt;
+				<br>&lt;u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="5" grid="6"&gt;&lt;/u-photo&gt;
+				<br>&lt;u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="5" grid="6"&gt;&lt;/u-photo&gt;
+				<br>&lt;u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="5" grid="6"&gt;&lt;/u-photo&gt;
+			<br>...</p>
+	&lt;script src="file/lightbox.min.js"&gt;&lt;/script&gt;
+	<p>&lt;/body&gt;</p>
+	</div>
+<!-- lightbox -->
 <script src="lightbox/js/lightbox.js"></script>
 </body>
 </html>

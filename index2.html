@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Emily Kolar">
+	<title>Demo 2</title>
+	<!-- import webcomponentsjs lite and the lightbox css -->
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="components/bower/webcomponentsjs/webcomponents.min.js"></script>
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<!-- import the u-photo and u-gallery templates -->
+	<link rel="import" href="components/u-photo.html">
+	<link rel="import" href="components/u-gallery.html">
+	<!-- styles just for demo pages (not needed for components to work) -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href="index.html">Demo #1</a> | <a href="index2.html">Demo #2</a> | <a href="index3.html">Demo #3</a> | <a href="https://github.com/emkolardev/ugallery/blob/localdom/README.md">ReadMe</a> | <a href="https://github.com/emkolardev/ugallery/tree/seconditeration">Github Repo</a> | <a href="ugallery_starter.zip" download>Download</a>
+		<h1>Two u-gallery elements without cover photos (each containing a gallery of u-photo elements)</h1>
+	</header>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-gallery> element:
+	- groups u-photo elements, can size all u-photos it contains into grid
+	- this can be used solely for grouping & sizing images, or used to display just a cover image that can be clicked to bring up the entire gallery in a lightbox
+
+	options:
+	- pixels: number, sets width of entire gallery outer-bounds in pixels (optional)
+	- percent: number, sets width of entire gallery outer-bounds in percent (optional; defaults to 100%)
+	- album: string, necessary if using cover image & must match album of its u-photos (defaults to "default")
+	- about: string, shows up as the caption in lightbox (optional)
+	- cover: string, path to cover image, will enable this feature if value is given (optional)
+	- grid: number, sets the number of columns in gallery and determines image widths (optional)
+	- gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
+	- cushion: number, sets a padding on all images (optional)
+	- frame: string, can be 'light' or 'dark'; sets a little border on all contained images, either charcoal or almost-white (optional)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	<u-photo> element:
+	creates a gallery image with built-in lightbox features
+
+	options:
+	- image: string, path to image
+	- pixels: number, sets width of uphoto in pixels, but converted to a grid value (optional)
+	- album: string, will include this image with others of this album in the lightbox (optional; defaults to "default")
+	- about: string, shows up as the image caption in lightbox (optional)
+	- grid: number, determines the image width by setting the number of columns it will occupy (optional; defaults to 1 (full width))
+	- cushion: number, sets a padding on the right and left of the image (optional)
+	- frame: string, can be 'light' or 'dark'; sets a little border on the image, either charcoal or almost-white (optional)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<u-gallery percent="95" grid="6" cushion="5" album="testalbum" frame="dark">
+		<u-photo image="images/chicago01.jpg" about="Addison" >
+		</u-photo>
+		<u-photo image="images/chicago02.jpg" about="Addison" >
+		</u-photo>
+		<u-photo image="images/chicago03.jpg" about="North/Clybourn" >
+		</u-photo>
+		<u-photo image="images/chicago04.jpg" about="Jackson" >
+		</u-photo>
+		<u-photo image="images/chicago05.jpg" about="North/Clybourn" >
+		</u-photo>
+		<u-photo image="images/chicago06.jpg" about="Addison" >
+		</u-photo>
+	</u-gallery>
+	<u-gallery percent="95" grid="3" cushion="5" album="testalbum2" frame="dark">
+		<u-photo image="images/chicago07.jpg" about="Lake" >
+		</u-photo>
+		<u-photo image="images/chicago08.jpg" about="Grand" >
+		</u-photo>
+		<u-photo image="images/chicago09.jpg" about="North/Clybourn" >
+		</u-photo>
+		<u-photo image="images/chicago10.jpg" about="North/Clybourn" >
+		</u-photo>
+		<u-photo image="images/chicago11.jpg" about="Train" >
+		</u-photo>
+		<u-photo image="images/chicago12.jpg" about="North/Clybourn" >
+		</u-photo>
+	</u-gallery>
+	
+	<br /><br /><hr /><br />
+
+	<div class="theCode">
+	<sup>(Click the ReadMe link up top for a thorough run-down)</sup><br>
+	<h3>HTML example for this gallery:</h3>
+	<p>&lt;head&gt;</p>
+	<p class="indent1">&lt;script src="file/jquery.min.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="file/webcomponents-lite.js"&gt;&lt;/script&gt;<br>
+	&lt;link rel="stylesheet" href="file/lightbox.css"&gt;<br>
+	&lt;link rel="import" href="file/u-photo.html"&gt;<br>
+	&lt;link rel="import" href="file/u-gallery.html"&gt;</p>
+	<p>&lt;/head&gt;</p>
+	<p>&lt;body&gt;</p>
+		<p class="indent1">&lt;u-gallery percent="95" grid="6" cushion="5" album="testalbum" frame="dark"&gt;</p>
+			<p class="indent2">&lt;u-photo image="images/chicago01.jpg" about="Addison"&gt;&lt;/u-photo&gt;
+			<br>&lt;u-photo image="images/chicago02.jpg" about="Addison"&gt;&lt;/u-photo&gt;
+			<br>&lt;u-photo image="images/chicago03.jpg" about="North/Clybourn"&gt;&lt;/u-photo&gt;
+			<br>...</p>
+		<p class="indent1">&lt;/u-gallery&gt;</p>
+		<p class="indent1">&lt;u-gallery percent="50" grid="3" cushion="5" album="testalbum2" frame="dark"&gt;</p>
+			<p class="indent2">&lt;u-photo image="images/chicago07.jpg" about="Lake"&gt;&lt;/u-photo&gt;
+			<br>&lt;u-photo image="images/chicago08.jpg" about="Grand"&gt;&lt;/u-photo&gt;
+			<br>&lt;u-photo image="images/chicago09.jpg" about="North/Clybourn"&gt;&lt;/u-photo&gt;
+			<br>...</p>
+		<p class="indent1">&lt;/u-gallery&gt;<p class="indent1">
+	&lt;script src="file/lightbox.min.js"&gt;&lt;/script&gt;
+	<p>&lt;/body&gt;</p>
+	</div>
+<script src="lightbox/js/lightbox.js"></script>
+</body>
+
+</html>
