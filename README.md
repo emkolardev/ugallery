@@ -1,7 +1,7 @@
 #ugallery
-(https://emkolar.ninja/ugallery)
 
 uses polymer-based web components to create flexible lightbox2 photo galleries
+(https://emkolar.ninja/ugallery)
 
 ###the components:
 - u-photo.html (components/u-photo.html)
