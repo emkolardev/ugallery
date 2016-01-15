@@ -41,7 +41,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - <b>about</b>: string, shows up as the caption in lightbox (optional)
 - <b>cover</b>: string, path to cover image, will enable this feature if value is given (optional)
 - <b>grid</b>: number, sets the number of columns in gallery and determines image widths (optional; ~~NOTE that this is only working in Chrome right now~~ (fixed))
-- <b>gap</b>: string, sets the space in pixels between rows in this gallery (optional ~~NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution~~ (fixed, i think))
+- <b>gap</b>: number, sets the space in pixels between rows in this gallery (optional ~~NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution~~ (fixed, i think))
 - <b>cushion</b>: number, sets a padding in pixels on all the images (optional)
 
 ###resource links
