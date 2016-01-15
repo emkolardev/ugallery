@@ -21,7 +21,7 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - creates a gallery image with built-in lightbox features
 
 ###u-photo options:
-- image: string, path to image
+- <b>image</b>: string, path to image
 - pixels: number, sets pixel width of image; this will actually get converted to a grid value based on its size and the size of the viewport (optional; converted to a grid value)
 - album: string, will include this image with others of this album in the lightbox (optional; defaults to "default-set“)
 - about: string, shows up as the image caption in lightbox (optional)
