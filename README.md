@@ -13,9 +13,9 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - lightbox.min.js (lightbox/js/lightbox.min.js)
 - lightbox.css (lightbox/css/lightbox.css)
 
-###include for mobile gestures:
-- ~~hammer.min.js (js/vendor/hammer.min.js)
-- as of right now, swiping right or left makes a random background color on the demo #1 page, but i haven’t gotten around to doing anything useful with this yet~~ (not using at all right now)
+### ~~include for mobile gestures:~~
+- ~~hammer.min.js (js/vendor/hammer.min.js)~~
+- ~~as of right now, swiping right or left makes a random background color on the demo #1 page, but i haven’t gotten around to doing anything useful with this yet~~ (not using this stuff at all right now)
 
 ###about the u-photo html component:
 - creates a gallery image with built-in lightbox features
