@@ -55,3 +55,4 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - ~~make the ‘width’ property for u-photos~~ (done)
 - ~~figure out why~~ ~~(u-gallery elements)~~ ~~cover photos only work in chrome (partially fixed)~~ (fixed!)
 - ~~fix the gap property so it doesn’t sometimes break the grid~~ (pretty sure this is good now)
+- update demos: recreate them with working components!
