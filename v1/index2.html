@@ -50,67 +50,66 @@
 	- label: boolean, this currently does absolutely nothing, in the future will show/hide lightbox label "image 1 of X"
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<u-gallery width="95%" grid="6">
-		<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="10">
+		<u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="10">
+		<u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="10">
+		<u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="10">
+		<u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="10">
+		<u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="10">
+		<u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="5">
 		</u-photo>
 	</u-gallery>
 	<u-gallery width="95%" grid="3">
-		<u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="10">
+		<u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="10">
+		<u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago09.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		<u-photo image="images/chicago09.jpg" album="testalbum2" about="North/Clybourn" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago10.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		<u-photo image="images/chicago10.jpg" album="testalbum2" about="North/Clybourn" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago11.jpg" album="testalbum2" about="Train" cushion="10">
+		<u-photo image="images/chicago11.jpg" album="testalbum2" about="Train" cushion="5">
 		</u-photo>
-		<u-photo image="images/chicago12.jpg" album="testalbum2" about="North/Clybourn" cushion="10">
+		<u-photo image="images/chicago12.jpg" album="testalbum2" about="North/Clybourn" cushion="5">
 		</u-photo>
 	</u-gallery>
 	
 	<br /><br /><hr /><br />
 
 	<div class="theCode">
-	<h3>Code:</h3>
+	<sup>(Click the ReadMe link up top for a thorough run-down)</sup><br>
+	<h3>HTML example for this gallery:</h3>
+	<p>&lt;head&gt;</p>
+	<p class="indent1">&lt;script src="file/jquery.min.js"&gt;&lt;/script&gt;<br>
+	&lt;script src="file/webcomponents-lite.js"&gt;&lt;/script&gt;<br>
+	&lt;link rel="stylesheet" href="file/lightbox.css"&gt;<br>
+	&lt;link rel="import" href="file/u-photo.html"&gt;<br>
+	&lt;link rel="import" href="file/u-gallery.html"&gt;</p>
+	<p>&lt;/head&gt;</p>
 	<p>&lt;body&gt;</p>
 		<p class="indent1">&lt;u-gallery width="95%" grid="6"&gt;</p>
-			<p class="indent2">&lt;u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="10"&gt;
+			<p class="indent2">&lt;u-photo image="images/chicago01.jpg" album="testalbum" about="Addison" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="10"&gt;
+			<br>&lt;u-photo image="images/chicago02.jpg" album="testalbum" about="Addison" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="10"&gt;
+			<br>&lt;u-photo image="images/chicago03.jpg" album="testalbum" about="North/Clybourn" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago04.jpg" album="testalbum" about="Jackson" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago05.jpg" album="testalbum" about="North/Clybourn" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago06.jpg" album="testalbum" about="Addison" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;</p>
+			<br>...</p>
 		<p class="indent1">&lt;/u-gallery&gt;</p>
 		<p class="indent1">&lt;u-gallery width="50%" grid="3"&gt;</p>
-			<p class="indent2">&lt;u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="10"&gt;
+			<p class="indent2">&lt;u-photo image="images/chicago07.jpg" album="testalbum2" about="Lake" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="10"&gt;
+			<br>&lt;u-photo image="images/chicago08.jpg" album="testalbum2" about="Grand" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago09.jpg" album="testalbum2" about="North/Clybourn" cushion="10"&gt;
+			<br>&lt;u-photo image="images/chicago09.jpg" album="testalbum2" about="North/Clybourn" cushion="5"&gt;
 			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago10.jpg" album="testalbum2" about="North/Clybourn" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago11.jpg" album="testalbum2" about="Train" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;
-			<br>&lt;u-photo image="images/chicago12.jpg" album="testalbum2" about="North/Clybourn" cushion="10"&gt;
-			<br>&lt;/u-photo&gt;</p>
+			<br>...</p>
 		<p class="indent1">&lt;/u-gallery&gt;<p class="indent1">
+	&lt;script src="file/lightbox.min.js"&gt;&lt;/script&gt;
 	<p>&lt;/body&gt;</p>
 	</div>
 <script src="lightbox/js/lightbox.js"></script>

@@ -1,170 +1,155 @@
-<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="bower/polymer/polymer.html">
 <dom-module id="u-photo">
-  	<template>
-    	<style>
-			html {
-		        box-sizing: border-box;
-		    }
-		    *, *:before, *:after {
-		        box-sizing: inherit;
-		    }
-		    :host {
-		        overflow: hidden;
-		        margin: 0 auto;
-		        padding: 0;
-		    }
-		    .uWrapper {
-		        overflow: hidden;
-		        padding: 0;
-		    }
-		    .uImage {
-		        max-width: 100%;
-		        max-height: 100%;
-		        margin: 0;
-		    }
-		    img.contained {
-			    display: none;
-		    }
-    </style>
-	    <div class="uWrapper" id="uWrap" style$="padding: {{ cushion }}px">
-	    	<img class="uImage" src="{{ image }}" alt="{{ about }}" id="uImg">
-	    </div>
-	</template>
-	<script>
-		Polymer({
-		    is: 'u-photo',
+<template>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		:host {
+			float: left;
+			margin: 0;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		.uWrapper {
+			margin: 0;
+		}
+		.uImage {
+			max-width: 100%;
+			width: 100%;
+			margin: 0;
+		}
+		:host.clearfix {
+			clear: left;
+		}
+	</style>
+	<div class="uWrapper" id="uwrapper">
+		<img class="uImage" id="uimage" src="{{ image }}" alt="{{ about }}">
+	</div>
+</template>
+
+<script>
+
+	Polymer({
 		
-		    properties: {
+		// tag name
+		is: 'u-photo',
+		
+		properties: {
 			
-			    // src for the inner image
-			    image: {
-			        type: String,
-			        value: function() {
-			          return "";
-			        }
-			    },
+			image: {
+				type: String,
+				value: function() {
+					return '';
+				}
+			},
 			
-			    // image's lightbox caption
-			    about: {
-			        type: String,
-			        value: function() {
-			          return "";
-			        }
-			    },
+			album: {
+				type: String,
+				value: function() {
+					return 'default-album';
+				},
+				reflectToAttribute: true
+			},
 			
-			    // set this to group images into lightbox gallery albums
-			    // by default, all images on the page grouped together under 'default'
-			    album: {
-			        type: String,
-			        value: function() {
-			          return "default";
-			        }
-			    },
-			      
-			    
-				// can use this to set photo width
-				// if a grid value is also set, this attribute will be ignored
-				// can be in px or %
-			    size: {
-				    type: String,
-				    value: function() {
-					    return "";
-				    }
-			    },
+			about: {
+				type: String,
+				value: function() {
+					return '';
+				}
+			},
 			
-			    // sets a u-photo's width by referencing a conceptual number of grid columns
-			    // ex: if a u-photo's grid size is 2, it's width should be equal to a single unit of space in a row having only 2 columns
-			    // thus, grid="2" would set the image width to 50%
-			    // NOTE: this has no effect on the width of any other photos (unlike setting grid size on a u-gallery); each can reference a diff unit of space
-			    // if neither size nor grid is set, u-photos will be set to a single-column grid
-			    grid: {
-			        type: Number,
-			        value: function() {
-			          return 0;
-			        }
-			    },
+			grid: {
+				type: Number,
+				value: function() {
+					return 0;
+				},
+				reflectToAttribute: true	
+			},
 			
-			    // adds px of padding
-			    cushion: {
-			        type: Number,
-			        value: function() {
-			          return 0;
-			        }
-			    },
+			pixels: {
+				type: Number,
+				value: function() {
+					return 0;
+				}
+			},
 			
-			    // will eventually hide/show "image 1 of X" lightbox label
-			    // TODO: this entire feature... currently not implemented
-			    counter: {
-			        type: Boolean,
-			        value: function() {
-			          return true;
-			        }
-		      	}	
-	    	},
-		    ready: function() {
+			cushion: {
+				type: Number,
+				value: function() {
+					return 0;
+				}
+			},
+			
+			frame: {
+				type: String,
+				value: function() {
+					return '';
+				}
+			}
+		
+		},
+		
+		ready: function() {
+			var lba = document.createElement('a');
+			lba.setAttribute('data-lightbox', this.album);
+			lba.setAttribute('data-title', this.about);
+			lba.setAttribute('href', this.image);
+			lba.appendChild(this.$.uwrapper);
+			Polymer.dom(this.root).appendChild(lba);
+						
+			if (this.pixels !== 0 && this.grid === 0) {
+				var w = (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / this.pixels);
+				if (this.grid < 1) {
+					this.grid = 1;
+				}
+				this.grid = Math.round(w);
+			}
+			
+			if (this.grid > 0) {
+				
+				this.style.width = (100 / this.grid) + '%';
+				this.style.maxWidth = (100 / this.grid) + '%';
+				var uphotos = document.getElementsByTagName('u-photo');
+				var previousGrids = 0;
+				
+				for (var i = 0; i < uphotos.length; i++) {
+					if (uphotos[i].classList.contains('inGallery') == false) {
+						uphotos[i].classList.add('outsideGallery');
+					}
+				}	
+				
+				var outside = document.getElementsByClassName('outsideGallery');
+				var gridLength = parseInt(outside[0].grid);
 
-				// if the grid value isn't set, but the size is, figure out what to do with it
-			    if (this.grid == 0 && this.size != "") {
-				    // allow inner-image widths over 100% and enforce hidden overflow, so a weird zoomed-in effect can be achieved
-				    // this was just for fun; the effect doesn't look that fantastic (... it looks pretty bad actually)
-					if (this.size[this.size.length - 1] == '%')
-				    {
-					    var val = parseInt(this.size.substring(0,(this.size.length-1)));
-					    if (val < 100) 
-					    {
-						    this.style.width = this.size;
-						    this.style.maxWidth = this.size;
-						    var pics = document.getElementsByTagName('u-photo');
-						    $.each(pics, function(index, value) {
-								pics[index].style.float = 'left'; 
-						    });
-						    var next = $('u-photo').last().next();
-						    next.css('clear', 'both');
-						   
-						    
-					    }
-					    else if (val > 100)
-					    {
-						   this.$.uImg.style.width = this.size;
-						   this.$.uImg.style.maxWidth = this.size;
-						   this.style.maxWidth = '100%';
-						   this.style.width = '100%';
-						   this.style.overflow = 'hidden !important';
-					    }
-				    }
-				    // if it looks like a pixel value, just set the length
-				    else if (this.size.substring((this.size.length - 2), (this.size.length)) == 'px')
-				    {
-					    this.style.width = this.size;
-				    }
-				    // or log a little error message
-				    else
-				    {
-					    console.log('One or more of your u-photo elements has an invalid width');
-				    }
-			    }
-			    // if a grid value is set, use it to calculate the image width
-			    // float the u-photos and figure out which ones need a clear
-			    if (this.grid > 0) {
-			        this.style.width = 100/this.grid + '%';
-			        this.style.maxWidth = 100/this.grid + '%';
-			        this.style.float = 'left';
-			        var all = document.getElementsByTagName('u-photo');
-			        for (var i = 0; i < all.length; i++) {
-			        	if ((i+1) % this.grid == 0) {
-			            	all[i].style.clear = 'right';
-			          	}
-			        }
-			        var next = $('u-photo').last().next();
-			        next.css('clear', 'both');
-			    }
-		  		// finally, wrap the element in a lightbox tag... otherwise it's just a semi-responsive grid of photos)
-		  		var originalhtml = this.innerHTML;
-		  		var newhtml = '<a href="' + this.image + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
-		  		this.innerHTML = newhtml;
-	    	}
-	  	});
-  	</script>
+				for (var i = 0; i < outside.length; i++) {
+					if (i === (gridLength + previousGrids))	{
+						outside[i].classList.add('clearfix');
+						previousGrids += gridLength;
+						gridLength = parseInt(outside[i].getAttribute('grid'));
+					}
+				}
+			}
+			
+			if (this.cushion > 0) {
+				this.$.uwrapper.style.padding = this.cushion + 'px';
+			}
+			
+			if (this.frame === 'dark') {
+				this.$.uimage.style.border = '6px solid #333';
+				this.$.uwrapper.style.borderRadius = '2px';
+			}
+			if (this.frame === 'light') {
+				this.$.uimage.style.border = '6px solid #DDD';
+				this.$.uwrapper.style.borderRadius = '2px';
+			}
+			
+		}
+		
+	});
+	
+	
+</script>
+
 </dom-module>
-
-

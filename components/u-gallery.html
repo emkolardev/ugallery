@@ -1,141 +1,191 @@
-<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="bower/polymer/polymer.html">
 <dom-module id="u-gallery">
-  	<template>
-    	<style>
-	    html {
-	        box-sizing: border-box;
-	    }
-	    *, *:before, *:after {
-	        box-sizing: inherit;
-	    }
-	    :host {
-	        overflow: hidden;
-	        margin: 0;
-	        padding: 0;
-	        display: block;
-	        height: auto;
-	    }
-	    .uaWrapper {
-	        margin: 0 auto;
-	        padding: 0;
-	        overflow: hidden;
-	    }
-	    img {
-	        max-width: 100%;
-	        margin: 0 auto;
-	        width: 100%;
-	    }
-    </style>
-	<div class="uaWrapper" id="uawrap" style$="width: {{ width }}">
-		<img class="gthumb" src="{{ cover }}" alt="{{ subtitle }}" id="thumbImg">
+<template>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		:host {
+		}
+		.ugWrapper {
+			max-width: 100%;
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.ugCover {
+			max-width: 100%;
+			width: 100%;
+		}
+	</style>
+	
+	<div class="ugWrapper" id="ugwrapper">
+		<img class="ugCover" src="{{ cover }}" alt="{{ about }}" id="ugcover">
 		 <content></content><!-- need this for holding of the u-photos -->
 	</div>
-	</template>
-  	<script>
+
+</template>
+<script>
+	
 	Polymer({
-	    is: 'u-gallery',
-	
-	    properties: {
-	
-	    	// set this to group images into a lightbox gallery albums (ex: album="MyAlbum")
-			// by default, this is set to 'default'
+		
+		is: 'u-gallery',
+		
+		properties: {
+			
 			album: {
-	        	type: String,
+				type: String,
 				value: function() {
-				return "default";
-	        	}
-	     	},
-	
-		 	// optional: cover-image src for the album/gallery (ex: cover="images/myimage.jpg")
-		 	// if provided, this will hide all the individual images on the page, showing only the album cover
-		 	// individual images will then be shown in the lightbox
-		 	cover: {
-	        	type: String,
+					return 'default-set';
+				}
+			},
+			
+			cover: {
+				type: String,
 				value: function() {
-					return "";
-	        	}
-	      	},
-	
-		    // sets width of the entire gallery (ex: width="80%")
-		    // can be Npx or N% (using % values recommended)
-		    // by default, set to 100%
-			width: {
-	        	type: String,
-				value: function() {
-					return "100%";
-	        	}
-	      	},
-	
-		  	// how many columns in the grid (ex: grid="4" --> 4 columns means each photo is 25% width-wise)
-		  	// setting a grid size will effect all photos within this gallery
-		  	// if not set, gallery will default to a single column
-		  	grid: {
-	        	type: Number,
+					return '';
+				}
+			},
+			
+			percent: {
+				type: Number,
 				value: function() {
 					return 0;
-	        	}
-	      	},
-	
-		  	// space between rows in this album (ex: gap="20px")
-		  	// sets a margin-bottom to u-photos
-		  	// currently this breaks if photos aren't all set to the same size, so use with caution
-		  	gap: {
-	        	type: String,
+				},
+				reflectToAttribute: true
+			},
+			
+			pixels: {
+				type: Number,
 				value: function() {
-					return "";
-	        	}
-	      	},
-	
-		  	// image's lightbox caption
-		  	// shown in lightbox only if cover image is provided
-		  	about: {
-	        	type: String,
+					return 0;
+				},
+				reflectToAttribute: true
+			},
+			
+			grid: {
+				type: Number,
 				value: function() {
-					return "";
-	        	}
-	      	}
-	    },
-	    ready: function() {
-			var imgArray = [];
-			// if a cover image is specified, use it, and hide the images this gallery contains
-			// wrap it up in a lightbox
-			// images will then be shown in the lightbox
-			if (this.cover != "") {
-				var imgs = $('u-photo', this);
+					return 0;
+				}
+			},
+			
+			gap: {
+				type: Number,
+				value: function() {
+					return '0';
+				}
+			},
+			
+			cushion: {
+				type: Number,
+				value: function() {
+					return 0;
+				}
+			},
+			
+			about: {
+				type: String,
+				value: function() {
+					return '';
+				}
+			},
+			
+			frame: {
+				type: String,
+				value: function() {
+					return '';
+				}
+			}
+			
+		},
+		
+		ready: function() {
+
+			var images = $('u-photo', this);
+			
+			for (var i = 0; i < images.length; i++) {				
+				images[i].setAttribute('album', this.album);
+				images[i].style.marginBottom = Math.round(this.gap/2) + 'px 0px';
+				images[i].classList.add('inGallery');	
+			}
+			
+		
+			if (this.percent !== 0) {
+				this.$.ugwrapper.style.width = this.percent + '%';
+				this.$.ugwrapper.style.maxWidth = this.percent + '%';
+			} 
+			else if (this.pixels !== 0) {
+				this.$.ugwrapper.style.width = this.pixels + 'px';
+				this.$.ugwrapper.style.maxWidth = this.pixels + 'px';
+			}
+			else {
+				this.percent = 100;
+				this.$.ugwrapper.style.width = this.percent + '%';
+				this.$.ugwrapper.style.maxWidth = this.percent + '%';
+			}
+			
+			
+			if (this.cover !== '') {
+								
+				for (var i = 0; i < images.length; i++) {
+					images[i].style.display = 'none';
+				}
+				var lba = document.createElement('a');
+				lba.setAttribute('data-lightbox', this.album);
+				lba.setAttribute('data-title', this.about);
+				lba.setAttribute('href', this.cover);
+				lba.appendChild(this.$.ugwrapper);	
+				Polymer.dom(this.root).appendChild(lba);					
+			} else {
+				this.$.ugcover.style.display = 'none';
+			}
+			
+			
+			if (this.grid > 0) {
+				
+				for (i = 0; i < images.length; i++) {
+					images[i].style.width = (100 / this.grid) + '%';
+					images[i].style.maxWidth = (100 / this.grid) + '%';
+					images[i].style.float = 'left';
+					if (i % this.grid === 0) {
+						images[i].style.clear = 'left';
+            		}
+				}
+				
+			}
+			
+		},
+		
+		attached: function() {
+			if (this.cushion > 0) {
+				var wrappers = $('.uWrapper', this);
+				for (i = 0; i < wrappers.length; i++) {
+					wrappers[i].style.padding = this.cushion + 'px';
+				}
+			}
+			
+			if (this.frame !== '') {
+				var bord = '6px solid ';
+				if (this.frame == 'dark') {
+					bord += '#333';
+				}
+				if (this.frame == 'light') {
+					bord += '#DDD';
+				}
+				console.log('border', bord);
+				if (this.cover !== '') {
+					this.$.ugcover.style.border = bord;
+					return;
+				}
+				var imgs = $('.uImage', this);
 				for (var i = 0; i < imgs.length; i++) {
-					imgs[i].style.display = "none";
-        		}
-				var originalhtml = this.innerHTML;
-				var newhtml = '<a href="' + this.cover + '" data-lightbox="' + this.album + '" data-title="' + this.about + '">' + originalhtml + '</a>';
-				this.innerHTML = newhtml;
-      		}	      
-      		else {
-		      this.$.thumbImg.style.display = 'none';
-	      	}
-	
-		  	// if a grid value is set, resize the u-photo elements in this gallery
-		  	if (this.grid > 0) {
-	        	var imgs = $('u-photo', this);
-				for (var i = 0; i < imgs.length; i++) {
-					imgs[i].style.width = (100 / this.grid) + '%';
-					imgs[i].style.maxWidth = (100 / this.grid) + '%';
-					imgs[i].style.float = 'left';
-					if ((i+1) % this.grid == 0) {
-						imgs[i].style.clear = 'right';
-	          		}
-	        	}      
-	        }
-	
-		  	// if a gap value is set, put a bottom margin on the u-photos
-		  	if (this.gap != "") {
-	        	var imgs = $('u-photo', this);
-				for (var i = 0; i < imgs.length; i++) {
-					imgs[i].style.marginBottom = this.gap;
-	        	}
-	      	}
-	    }
+					imgs[i].style.border = bord;
+				}
+			}
+		}
 	});
- 	</script>
+	
+</script>
 </dom-module>
-
-
