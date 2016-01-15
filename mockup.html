@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Emily Kolar">
+	<title>Demo 3</title>
+	<!-- import webcomponentsjs lite and the lightbox css -->
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="components/bower/webcomponentsjs/webcomponents.min.js"></script>
+	<link rel="stylesheet" href="lightbox/css/lightbox.css">
+	<!-- import the u-photo and u-gallery templates -->
+	<link rel="import" href="components/u-photo.html">
+	<link rel="import" href="components/u-gallery.html">
+	<!-- styles just for demo pages (not needed for components to work) -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="smaller">
+		<a href="index.html">Demo #1</a> | <a href="index2.html">Demo #2</a> | <a href="index3.html">Demo #3</a> | <a href="mockup.html">Mockup</a> | <a href="https://github.com/emkolardev/ugallery/blob/localdom/README.md">ReadMe</a> | <a href="https://github.com/emkolardev/ugallery/tree/localdom">Github Repo</a> | <a href="starter.zip" download>Download</a>
+		<h1>My Tiny-Galleries: Late-Night|Red-Line</h1>
+	</header>
+	
+	<u-gallery percent="90" cover="images/plazorama.png" about="Late Night" album="testalbum"  grid="4" gap="20">
+		<u-photo image="images/chicago01.jpg" about="Addison">
+		</u-photo>
+		<u-photo image="images/chicago02.jpg" about="Addison">
+		</u-photo>
+		<u-photo image="images/chicago03.jpg" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago04.jpg" about="Jackson">
+		</u-photo>
+		<u-photo image="images/chicago05.jpg" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago06.jpg" about="Addison">
+		</u-photo>
+	</u-gallery>
+	<u-gallery percent="90" cover="images/trainorama.jpg" about="Red Line" album="testalbum2"  grid="6" gap="20">
+		<u-photo image="images/chicago07.jpg" about="Lake">
+		</u-photo>
+		<u-photo image="images/chicago08.jpg" about="Grand">
+		</u-photo>
+		<u-photo image="images/chicago09.jpg" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago10.jpg" about="North/Clybourn">
+		</u-photo>
+		<u-photo image="images/chicago11.jpg" about="Train">
+		</u-photo>
+		<u-photo image="images/chicago12.jpg" about="North/Clybourn">
+		</u-photo>
+	</u-gallery>
+	<u-gallery percent="90" album="testalbum3" grid="4">
+		<u-photo image="images/chicago14.jpg" about="North/Clybourn"></u-photo>
+		<u-photo image="images/chicago15.jpg" about="Halsted"></u-photo>
+		<u-photo image="images/chicago13.jpg" about="North/Clybourn"></u-photo>
+		<u-photo image="images/chicago16.jpg" about="Train"></u-photo>
+	</u-gallery>
+
+	
+<!-- lightbox -->
+<script src="lightbox/js/lightbox.min.js"></script>
+<!-- my js -->
+<!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>

@@ -18,10 +18,20 @@
 			max-width: 100%;
 			width: 100%;
 		}
+		.ugMarquee {
+			color: #AAA;
+			font-size: 20px;
+			width: 100%;
+			text-align: center;
+			text-decoration: none;
+			font-style: oblique;
+			font-weight: 400;
+		}
 	</style>
 	
 	<div class="ugWrapper" id="ugwrapper">
 		<img class="ugCover" src="{{ cover }}" alt="{{ about }}" id="ugcover">
+		<h2 class="ugMarquee" id="ugmarquee"></h2>
 		 <content></content><!-- need this for holding of the u-photos -->
 	</div>
 
@@ -97,6 +107,13 @@
 				value: function() {
 					return '';
 				}
+			},
+			
+			marquee: {
+				type: String,
+				value: function() {
+					return '';
+				}
 			}
 			
 		},
@@ -139,6 +156,11 @@
 				lba.appendChild(this.$.ugwrapper);	
 				Polymer.dom(this.root).appendChild(lba);	
 				
+				if (this.marquee !== '') {
+					var t = document.createTextNode(this.marquee);
+					(this.$.ugmarquee).appendChild(t);
+				}
+				
 			} else {
 				this.$.ugcover.style.display = 'none';
 			}
@@ -172,7 +194,7 @@
 			}
 			
 			if (this.frame !== '') {
-				var bord = '6px solid ';
+				var bord = '4px solid ';
 				if (this.frame == 'dark') {
 					bord += '#333';
 				}
@@ -182,11 +204,13 @@
 				console.log('border', bord);
 				if (this.cover !== '') {
 					this.$.ugcover.style.border = bord;
+					this.$.ugcover.style.borderRadius = '1px';
 					return;
 				}
 				var imgs = $('.uImage', this);
 				for (var i = 0; i < imgs.length; i++) {
 					imgs[i].style.border = bord;
+					imgs[i].style.borderRadius = '1px';
 				}
 			}
 		}
