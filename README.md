@@ -22,12 +22,12 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 
 ###u-photo options:
 - <b>image</b>: string, path to image
-- pixels: number, sets pixel width of image; this will actually get converted to a grid value based on its size and the size of the viewport (optional; converted to a grid value)
-- album: string, will include this image with others of this album in the lightbox (optional; defaults to "default-set“)
-- about: string, shows up as the image caption in lightbox (optional)
-- grid: number, determines the image width by setting the number of columns it will occupy (optional)
-- cushion: number, sets a padding on the image (optional)
-- frame: string, can be ’light’ or ‘dark’; default is none; adds a 6px frame onto the image (optional)
+- <b>pixels</b>: number, sets pixel width of image; this will actually get converted to a grid value based on its size and the size of the viewport (optional; converted to a grid value)
+- <b>album</b>: string, will include this image with others of this album in the lightbox (optional; defaults to "default-set“)
+- <b>about</b>: string, shows up as the image caption in lightbox (optional)
+- <b>grid</b>: number, determines the image width by setting the number of columns it will occupy (optional)
+- <b>cushion</b>: number, sets a padding in pixels on the image (optional)
+- <b>frame</b>: string, can be ’light’ or ‘dark’; default is none; adds a 6px frame onto the image (optional)
 
 
 ###about the u-gallery html component:
@@ -35,21 +35,23 @@ uses polymer-based web components to create flexible lightbox2 photo galleries
 - this can be used solely for grouping & sizing images, or used to display just a cover image that can be clicked to bring up the entire gallery in a lightbox
 
 ###u-gallery options:
-- width: string, can be Npx or N%, but % values are recommended (optional; defaults to 100%)
-- album: string, necessary if using cover image & must match album of its u-photos (defaults to "default-album”)
-- about: string, shows up as the caption in lightbox (optional)
-- cover: string, path to cover image, will enable this feature if value is given (optional)
-- grid: number, sets the number of columns in gallery and determines image widths (optional; ~~NOTE that this is only working in Chrome right now~~ (fixed)
-- gap: string, can be Npx or N%, sets the space between rows in this gallery (optional; NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution)
+- <b>pixels</b>: number, sets width in pixels for the entire gallery’s outer bounds (optional; width defaults to 100%)
+- <b>percent</b>: number, sets width in percent value for the entire gallery’s outer bounds (optional; width defaults to 100%)
+- <b>album</b>: string, necessary if using cover image & must match album of its u-photos (defaults to "default-album”)
+- <b>about</b>: string, shows up as the caption in lightbox (optional)
+- <b>cover</b>: string, path to cover image, will enable this feature if value is given (optional)
+- <b>grid</b>: number, sets the number of columns in gallery and determines image widths (optional; ~~NOTE that this is only working in Chrome right now~~ (fixed))
+- <b>gap</b>: string, can be Npx or N%, sets the space between rows in this gallery (optional ~~NOTE that this currently breaks the gallery if images aren't all the same size, so use with caution~~ (fixed, i think))
+- <b>cushion</b>: number, sets a padding in pixels on all the images (optional)
 
 ###resource links
-- Polymer: https://github.com/Polymer/polymer
-- Webcomponentsjs: https://github.com/webcomponents/webcomponentsjs)
-- JQuery: https://jquery.com/
-- Lightbox: https://github.com/lokesh/lightbox2/
+- polymer: https://github.com/Polymer/polymer
+- webcomponentsjs: https://github.com/webcomponents/webcomponentsjs)
+- jQuery: https://jquery.com/
+- lightbox2: https://github.com/lokesh/lightbox2/
 
 ###todo:
 - ~~implement better touch gestures with hammer~~ (later, later, later)
 - ~~make the ‘width’ property for u-photos~~ (done)
 - ~~figure out why~~ ~~(u-gallery elements)~~ ~~cover photos only work in chrome (partially fixed)~~ (fixed!)
-- fix the gap property so it doesn’t sometimes break the grid
+- ~~fix the gap property so it doesn’t sometimes break the grid~~ (pretty sure this is good now)
